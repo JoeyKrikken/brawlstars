@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ranked Maps</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🏆 Ranked Maps</h1>
+    <p class="small">Klik een map aan of zoek er één en zie de beste picks en bans!</p>
+
+    <div class="row">
+      <input id="mapInput" type="text" placeholder="Typ mapnaam (bijv: Dry Season)" />
+    </div>
+
+    <div class="mapsLayout">
+      <!-- Sidebar links -->
+      <div class="mapsList">
+        <h3>Alle maps</h3>
+        <div id="mapButtons"></div>
+      </div>
+
+      <!-- Preview rechts -->
+      <div class="mapsPreview">
+        <h3>Preview</h3>
+        <img id="mapImage" class="mapImage" />
+        <p class="status" id="mapStatus">👈 Kies een map</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Belangrijk: script onderaan body zodat HTML al geladen is -->
+  <script src="script.js"></script>
+</body>
+</html>

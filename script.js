@@ -99,24 +99,57 @@ function showMap(mapName) {
   }
 }
 
-// Render sidebar
+// Render sidebar grouped by mode
 function renderList(filter = "") {
   mapList.innerHTML = "";
+
+  const modeOrder = ["knockball", "gemgrab", "knockout", "heist"];
+  const modeTitle = {
+    knockball: "Knockball",
+    gemgrab: "Gem Grab",
+    knockout: "Knockout",
+    heist: "Heist"
+  };
+
+  const grouped = {
+    knockball: [],
+    gemgrab: [],
+    knockout: [],
+    heist: []
+  };
 
   Object.keys(mapImages)
     .sort()
     .forEach(key => {
       if (!key.includes(filter)) return;
+      const mode = mapModes[key];
+      if (!grouped[mode]) return;
+      grouped[mode].push(key);
+    });
 
+  modeOrder.forEach(mode => {
+    const maps = grouped[mode];
+    if (!maps.length) return;
+
+    const section = document.createElement("div");
+    section.className = "mode-section";
+
+    const header = document.createElement("h4");
+    header.className = `mode-header mode-${mode}`;
+    header.textContent = modeTitle[mode];
+    section.appendChild(header);
+
+    maps.forEach(key => {
       const div = document.createElement("div");
       div.className = "map-item";
       div.textContent = toTitle(key);
       div.dataset.map = key;
-
       div.addEventListener("click", () => showMap(key));
-
-      mapList.appendChild(div);
+      section.appendChild(div);
     });
+
+    mapList.appendChild(section);
+  });
 }
 
 // Filter while typing
@@ -128,5 +161,7 @@ searchInput.addEventListener("input", () => {
 // Initial load
 renderList();
 statusText.textContent = "Choose a map";
+
+
 
 

@@ -93,6 +93,43 @@ input:focus {
   margin-bottom: 12px;
   text-shadow: 0 0 8px #00ffff;
 }
+/* Mode headers in sidebar */
+.mode-section {
+  margin-bottom: 14px;
+}
+
+.mode-header {
+  margin: 6px 0 10px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: #0f1729;
+  border: 1px solid #2a344a;
+  color: #dbe5ff;
+}
+
+.mode-header.mode-knockball {
+  border-color: #3b82f655;
+  color: #93c5fd;
+}
+
+.mode-header.mode-gemgrab {
+  border-color: #a855f755;
+  color: #d8b4fe;
+}
+
+.mode-header.mode-knockout {
+  border-color: #fb923c55;
+  color: #fdba74;
+}
+
+.mode-header.mode-heist {
+  border-color: #ec489955;
+  color: #f9a8d4;
+}
 
 /* Map buttons (game UI style) */
 .map-item {
@@ -377,6 +414,7 @@ input:focus {
     margin-bottom: 10px;
   }
 }
+
 
 
 

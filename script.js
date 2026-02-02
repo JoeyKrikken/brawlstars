@@ -74,8 +74,8 @@ function toTitle(text) {
 }
 
 function setPreviewMode(mode) {
-  previewPanel.classList.remove("knockball", "gemgrab", "knockout", "heist");
-  if (mode) previewPanel.classList.add(mode);
+  previewPanel.classList.remove("mode-knockball", "mode-gemgrab", "mode-knockout", "mode-heist");
+  if (mode) previewPanel.classList.add("mode-" + mode);
 }
 
 // Show map in preview
@@ -128,3 +128,5 @@ searchInput.addEventListener("input", () => {
 // Initial load
 renderList();
 statusText.textContent = "Choose a map";
+
+

@@ -214,8 +214,8 @@ input:focus {
 }
 /* Preview panel */
 .mapsPreview {
-  --preview-color: #a855f7;
-  --preview-glow: rgba(168, 85, 247, 0.35);
+  --mode-color: #a855f7;
+  --mode-glow: rgba(168, 85, 247, 0.35);
   flex: 1;
   background: linear-gradient(145deg, #111a33, #0a0f26);
   padding: 20px;
@@ -225,47 +225,53 @@ input:focus {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  border: 1px solid var(--preview-color);
-  box-shadow: 0 0 20px var(--preview-glow) inset;
+  border: 1px solid var(--mode-color);
+  box-shadow: 0 0 24px var(--mode-glow) inset, 0 0 20px var(--mode-glow);
   transition: border-color 0.28s ease, box-shadow 0.28s ease;
 }
 
 .mapsPreview h3 {
   margin-bottom: 15px;
-  text-shadow: 0 0 10px var(--preview-color);
+  text-shadow: 0 0 10px var(--mode-color);
   transition: text-shadow 0.28s ease;
 }
-
-.mapsPreview.knockball {
-  --preview-color: #3b82f6;
-  --preview-glow: rgba(59, 130, 246, 0.35);
+.mapsPreview .status {
+  color: var(--mode-color);
+  text-shadow: 0 0 10px var(--mode-glow);
+  transition: color 0.28s ease, text-shadow 0.28s ease;
 }
 
-.mapsPreview.gemgrab {
-  --preview-color: #a855f7;
-  --preview-glow: rgba(168, 85, 247, 0.35);
+.mapsPreview.mode-knockball {
+  --mode-color: #3b82f6;
+  --mode-glow: rgba(59, 130, 246, 0.35);
 }
 
-.mapsPreview.knockout {
-  --preview-color: #fb923c;
-  --preview-glow: rgba(251, 146, 60, 0.35);
+.mapsPreview.mode-gemgrab {
+  --mode-color: #a855f7;
+  --mode-glow: rgba(168, 85, 247, 0.35);
 }
 
-.mapsPreview.heist {
-  --preview-color: #ec4899;
-  --preview-glow: rgba(236, 72, 153, 0.35);
+.mapsPreview.mode-knockout {
+  --mode-color: #fb923c;
+  --mode-glow: rgba(251, 146, 60, 0.35);
 }
+
+.mapsPreview.mode-heist {
+  --mode-color: #ec4899;
+  --mode-glow: rgba(236, 72, 153, 0.35);
+}
+
 /* Map image */
-.mapImage {
+.mapsPreview .mapImage {
   width: 100%;
   max-width: 600px;
   border-radius: 16px;
   display: none;
   margin-bottom: 15px;
-  box-shadow: 0 0 25px #ff00ff, 0 0 50px #ff00ff33 inset;
-  transition: 0.3s;
+  border: 1px solid var(--mode-color);
+  box-shadow: 0 0 22px var(--mode-glow), 0 0 42px var(--mode-glow), inset 0 0 14px var(--mode-glow);
+  transition: border-color 0.28s ease, box-shadow 0.28s ease, border-radius 0.3s ease, margin-bottom 0.3s ease;
 }
-
 /* Scrollbar sidebar */
 .mapsList::-webkit-scrollbar {
   width: 6px;
@@ -373,6 +379,8 @@ input:focus {
     margin-bottom: 10px;
   }
 }
+
+
 
 
 

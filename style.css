@@ -94,30 +94,99 @@ input:focus {
   text-shadow: 0 0 8px #00ffff;
 }
 
-/* Map items */
-.map-item {
+/* Map buttons (game UI style) */
+.map-item,
+.map-button {
+  --mode-color: #3b82f6;
+  --mode-glow: rgba(59, 130, 246, 0.35);
   padding: 12px;
   border-radius: 10px;
   background: #1a2233;
   margin-bottom: 10px;
+  border: 1px solid transparent;
   cursor: pointer;
-  transition: 0.3s;
-  font-weight: bold;
+  font-weight: 700;
+  color: #f4f7ff;
+  transition: transform 0.22s ease, background-color 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease, color 0.22s ease;
 }
 
-.map-item:hover {
-  background: #00ffff33;
-  text-shadow: 0 0 6px #00ffff;
-  transform: translateX(2px);
+/* Knockball -> blue */
+.map-button.knockball,
+.map-item[data-map="dry season"],
+.map-item[data-map="hideout"],
+.map-item[data-map="layer cake"],
+.map-item[data-map="center stage"],
+.map-item[data-map="pinball dreams"],
+.map-item[data-map="sneaky fields"],
+.map-item[data-map="triple dribble"] {
+  --mode-color: #3b82f6;
+  --mode-glow: rgba(59, 130, 246, 0.35);
 }
 
-.map-item.active {
-  background: #00ffff55;
-  color: #111a33;
-  font-weight: bold;
-  text-shadow: 0 0 10px #00ffff;
+/* Gem Grab -> purple */
+.map-button.gemgrab,
+.map-item[data-map="double swoosh"],
+.map-item[data-map="gem fort"],
+.map-item[data-map="hard rock mine"],
+.map-item[data-map="undermine"] {
+  --mode-color: #a855f7;
+  --mode-glow: rgba(168, 85, 247, 0.35);
 }
 
+/* Knockout -> orange */
+.map-button.knockout,
+.map-item[data-map="shooting star"],
+.map-item[data-map="bridge too far"],
+.map-item[data-map="dueling beetles"],
+.map-item[data-map="open business"],
+.map-item[data-map="parallel plays"],
+.map-item[data-map="ring of fire"],
+.map-item[data-map="belles rock"],
+.map-item[data-map="flaring phoenix"],
+.map-item[data-map="new horizons"],
+.map-item[data-map="out in the open"] {
+  --mode-color: #fb923c;
+  --mode-glow: rgba(251, 146, 60, 0.35);
+}
+
+/* Heist -> pink */
+.map-button.heist,
+.map-item[data-map="hot potato"],
+.map-item[data-map="kaboom canyon"],
+.map-item[data-map="pit stop"],
+.map-item[data-map="safe zone"],
+.map-item[data-map="safer zone"] {
+  --mode-color: #ec4899;
+  --mode-glow: rgba(236, 72, 153, 0.35);
+}
+
+.map-item:hover,
+.map-button:hover {
+  transform: translateY(-3px) scale(1.015);
+  background: #212c42;
+  border-color: var(--mode-color);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35), 0 0 16px var(--mode-glow);
+  text-shadow: 0 0 8px var(--mode-glow);
+}
+
+.map-item.active,
+.map-button.active,
+.map-button.is-active,
+.map-button[aria-pressed="true"] {
+  transform: translateY(-1px);
+  background: #24324c;
+  border-color: var(--mode-color);
+  color: #ffffff;
+  box-shadow: 0 0 0 1px var(--mode-color), 0 0 18px var(--mode-glow), inset 0 0 10px rgba(255, 255, 255, 0.05);
+  text-shadow: 0 0 6px var(--mode-glow);
+}
+
+.map-item.active:hover,
+.map-button.active:hover,
+.map-button.is-active:hover,
+.map-button[aria-pressed="true"]:hover {
+  transform: translateY(-2px) scale(1.01);
+}
 /* Preview panel */
 .mapsPreview {
   flex: 1;
@@ -238,6 +307,11 @@ input:focus {
     font-size: 14px;
   }
 
+  .map-button {
+    padding: 10px;
+    font-size: 14px;
+  }
+
   .mapsPreview h3 {
     margin-bottom: 10px;
   }
@@ -251,3 +325,5 @@ input:focus {
     margin-bottom: 10px;
   }
 }
+
+

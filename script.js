@@ -3,6 +3,7 @@ const searchInput = document.getElementById("mapInput");
 const mapList = document.getElementById("mapButtons");
 const resultImage = document.getElementById("mapImage");
 const statusText = document.getElementById("mapStatus");
+const previewPanel = document.querySelector(".mapsPreview");
 
 // Map names + images
 const mapImages = {
@@ -34,6 +35,35 @@ const mapImages = {
   "out in the open": "images/out-in-the-open.png"
 };
 
+const mapModes = {
+  "dry season": "knockball",
+  "hideout": "knockball",
+  "layer cake": "knockball",
+  "center stage": "knockball",
+  "pinball dreams": "knockball",
+  "sneaky fields": "knockball",
+  "triple dribble": "knockball",
+  "double swoosh": "gemgrab",
+  "gem fort": "gemgrab",
+  "hard rock mine": "gemgrab",
+  "undermine": "gemgrab",
+  "shooting star": "knockout",
+  "bridge too far": "knockout",
+  "dueling beetles": "knockout",
+  "open business": "knockout",
+  "parallel plays": "knockout",
+  "ring of fire": "knockout",
+  "belles rock": "knockout",
+  "flaring phoenix": "knockout",
+  "new horizons": "knockout",
+  "out in the open": "knockout",
+  "hot potato": "heist",
+  "kaboom canyon": "heist",
+  "pit stop": "heist",
+  "safe zone": "heist",
+  "safer zone": "heist"
+};
+
 // Helper functions
 function cleanText(text) {
   return text.toLowerCase().trim().replace(/\s+/g, " ");
@@ -41,6 +71,11 @@ function cleanText(text) {
 
 function toTitle(text) {
   return text.split(" ").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
+}
+
+function setPreviewMode(mode) {
+  previewPanel.classList.remove("knockball", "gemgrab", "knockout", "heist");
+  if (mode) previewPanel.classList.add(mode);
 }
 
 // Show map in preview
@@ -53,10 +88,12 @@ function showMap(mapName) {
   });
 
   if (mapImages[key]) {
+    setPreviewMode(mapModes[key]);
     resultImage.src = mapImages[key];
     resultImage.style.display = "block";
     statusText.textContent = `Selected: ${toTitle(key)}`;
   } else {
+    setPreviewMode(null);
     resultImage.style.display = "none";
     statusText.textContent = "Map not found.";
   }

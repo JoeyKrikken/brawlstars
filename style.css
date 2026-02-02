@@ -214,6 +214,8 @@ input:focus {
 }
 /* Preview panel */
 .mapsPreview {
+  --preview-color: #a855f7;
+  --preview-glow: rgba(168, 85, 247, 0.35);
   flex: 1;
   background: linear-gradient(145deg, #111a33, #0a0f26);
   padding: 20px;
@@ -223,15 +225,36 @@ input:focus {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  border: 1px solid #ff00ff55;
-  box-shadow: 0 0 20px #ff00ff44 inset;
+  border: 1px solid var(--preview-color);
+  box-shadow: 0 0 20px var(--preview-glow) inset;
+  transition: border-color 0.28s ease, box-shadow 0.28s ease;
 }
 
 .mapsPreview h3 {
   margin-bottom: 15px;
-  text-shadow: 0 0 10px #ff00ff;
+  text-shadow: 0 0 10px var(--preview-color);
+  transition: text-shadow 0.28s ease;
 }
 
+.mapsPreview.knockball {
+  --preview-color: #3b82f6;
+  --preview-glow: rgba(59, 130, 246, 0.35);
+}
+
+.mapsPreview.gemgrab {
+  --preview-color: #a855f7;
+  --preview-glow: rgba(168, 85, 247, 0.35);
+}
+
+.mapsPreview.knockout {
+  --preview-color: #fb923c;
+  --preview-glow: rgba(251, 146, 60, 0.35);
+}
+
+.mapsPreview.heist {
+  --preview-color: #ec4899;
+  --preview-glow: rgba(236, 72, 153, 0.35);
+}
 /* Map image */
 .mapImage {
   width: 100%;
@@ -350,6 +373,7 @@ input:focus {
     margin-bottom: 10px;
   }
 }
+
 
 
 

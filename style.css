@@ -187,6 +187,31 @@ input:focus {
 .map-button[aria-pressed="true"]:hover {
   transform: translateY(-2px) scale(1.01);
 }
+/* Touch support: use press state where hover does not exist */
+.map-item:active,
+.map-button:active {
+  transform: translateY(-1px) scale(1.01);
+  background: #212c42;
+  border-color: var(--mode-color);
+  box-shadow: 0 0 14px var(--mode-glow);
+}
+
+@media (hover: none) {
+  .map-item:hover,
+  .map-button:hover {
+    transform: none;
+    border-color: transparent;
+    box-shadow: none;
+    text-shadow: none;
+  }
+
+  .map-item:active,
+  .map-button:active {
+    transform: translateY(-1px) scale(1.01);
+    border-color: var(--mode-color);
+    box-shadow: 0 0 14px var(--mode-glow);
+  }
+}
 /* Preview panel */
 .mapsPreview {
   flex: 1;
@@ -325,5 +350,6 @@ input:focus {
     margin-bottom: 10px;
   }
 }
+
 
 

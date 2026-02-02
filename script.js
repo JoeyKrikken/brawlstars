@@ -1,10 +1,10 @@
-// DOM elementen
+﻿// DOM elements
 const searchInput = document.getElementById("mapInput");
 const mapList = document.getElementById("mapButtons");
 const resultImage = document.getElementById("mapImage");
 const statusText = document.getElementById("mapStatus");
 
-// Mapnamen + afbeeldingen
+// Map names + images
 const mapImages = {
   "dry season": "images/dry-season.png",
   "hideout": "images/hideout.png",
@@ -34,7 +34,7 @@ const mapImages = {
   "out in the open": "images/out-in-the-open.png"
 };
 
-// helper functies
+// Helper functions
 function cleanText(text) {
   return text.toLowerCase().trim().replace(/\s+/g, " ");
 }
@@ -43,7 +43,7 @@ function toTitle(text) {
   return text.split(" ").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
 }
 
-// Toon map in preview
+// Show map in preview
 function showMap(mapName) {
   const key = cleanText(mapName);
 
@@ -55,10 +55,10 @@ function showMap(mapName) {
   if (mapImages[key]) {
     resultImage.src = mapImages[key];
     resultImage.style.display = "block";
-    statusText.textContent = `✅ ${toTitle(key)}`;
+    statusText.textContent = `Selected: ${toTitle(key)}`;
   } else {
     resultImage.style.display = "none";
-    statusText.textContent = "❌ Map niet gevonden.";
+    statusText.textContent = "Map not found.";
   }
 }
 
@@ -82,12 +82,12 @@ function renderList(filter = "") {
     });
 }
 
-// Filteren bij typen
+// Filter while typing
 searchInput.addEventListener("input", () => {
   const filter = cleanText(searchInput.value);
   renderList(filter);
 });
 
-// Eerste keer laden
+// Initial load
 renderList();
-statusText.textContent = "👈 Kies een map";
+statusText.textContent = "Choose a map";

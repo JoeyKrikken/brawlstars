@@ -1,4 +1,4 @@
-/* Algemene body */
+﻿/* Base body */
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
@@ -14,7 +14,7 @@ body {
   padding: 20px;
 }
 
-/* Titel */
+/* Title */
 h1 {
   text-align: center;
   margin-bottom: 5px;
@@ -23,7 +23,7 @@ h1 {
   text-shadow: 0 0 15px #ffcc00, 0 0 25px #ffcc00, 0 0 35px #ffcc00;
 }
 
-/* Subtekst */
+/* Subtitle */
 .small {
   text-align: center;
   opacity: 0.8;
@@ -61,7 +61,7 @@ input:focus {
   box-shadow: 0 0 12px #00ffff inset, 0 0 25px #00ffff;
 }
 
-/* Status tekst */
+/* Status text */
 .status {
   text-align: center;
   margin-top: 10px;
@@ -118,7 +118,7 @@ input:focus {
   text-shadow: 0 0 10px #00ffff;
 }
 
-/* Preview rechts */
+/* Preview panel */
 .mapsPreview {
   flex: 1;
   background: linear-gradient(145deg, #111a33, #0a0f26);
@@ -138,7 +138,7 @@ input:focus {
   text-shadow: 0 0 10px #ff00ff;
 }
 
-/* Map afbeelding */
+/* Map image */
 .mapImage {
   width: 100%;
   max-width: 600px;

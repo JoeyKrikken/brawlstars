@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="nl">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,30 +8,30 @@
 </head>
 <body>
   <div class="container">
-    <h1>🏆 Ranked Maps</h1>
-    <p class="small">Klik een map aan of zoek er één en zie de beste picks en bans!</p>
+    <h1>Ranked Maps</h1>
+    <p class="small">Click a map or search for one to see the best picks and bans!</p>
 
     <div class="row">
-      <input id="mapInput" type="text" placeholder="Typ mapnaam (bijv: Dry Season)" />
+      <input id="mapInput" type="text" placeholder="Type map name (e.g.: Dry Season)" />
     </div>
 
     <div class="mapsLayout">
       <!-- Sidebar links -->
       <div class="mapsList">
-        <h3>Alle maps</h3>
+        <h3>All maps</h3>
         <div id="mapButtons"></div>
       </div>
 
-      <!-- Preview rechts -->
+      <!-- Preview panel -->
       <div class="mapsPreview">
         <h3>Preview</h3>
         <img id="mapImage" class="mapImage" />
-        <p class="status" id="mapStatus">👈 Kies een map</p>
+        <p class="status" id="mapStatus">Choose a map</p>
       </div>
     </div>
   </div>
 
-  <!-- Belangrijk: script onderaan body zodat HTML al geladen is -->
+  <!-- Important: keep script at the end of the body so the HTML is already loaded -->
   <script src="script.js"></script>
 </body>
 </html>
